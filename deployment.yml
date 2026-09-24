@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mario-game-deployment
+  labels:
+    app: mario-game
+spec:
+  replicas: 120
+  selector:
+    matchLabels:
+      app: mario-game
+  template:
+    metadata:
+      labels:
+        app: mario-game
+    spec:
+      containers:
+      - name: mario-game
+        image: akashnagasaki123/mario-game:v1.1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mario-game-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: mario-game
+  ports:
+    - protocol: TCP
+      port: 80           # External port (browser)
+      targetPort: 8080   # Internal container port
