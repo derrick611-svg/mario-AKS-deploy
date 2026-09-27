@@ -11,4 +11,7 @@ terraform {
 
 provider "azurerm" {
   features {}
+
+  # Skip automatic provider registration for restricted permissions (v3 syntax)
+  skip_provider_registration = true
 }

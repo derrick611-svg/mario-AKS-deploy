@@ -1,4 +1,4 @@
-resource_group_name = "1-2b8ec3e0-playground-sandbox"
+resource_group_name = "1-0d070a7f-playground-sandbox"
 location            = "East US"
 cluster_name        = "mario-game-aks"
 dns_prefix          = "mario-game-dns"
